@@ -1,12 +1,10 @@
 import streamlit as st
+from st_pages import add_page_title, get_nav_from_toml
 
-st.set_page_config(
-    page_title = "IPL Hawkeye Dashboard",
-    layout = "centered"
-)
+# get and set up navigation to multi page app 
+nav = get_nav_from_toml()
+pg = st.navigation(nav)
 
+# add_page_title(pg)
 
-# Title on the page
-# st.markdown("# IPL Hawkeye Dashboard")        # Same thing but with markdown
-st.title("IPL Hawkeye Dashboard")
-
+pg.run()

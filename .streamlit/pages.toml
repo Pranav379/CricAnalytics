@@ -1,0 +1,20 @@
+[[pages]]
+path = "home_page.py"
+name = "Home"
+icon = "🏠"
+
+[[pages]]
+path = "batter_page.py"
+name = "Batter Hub"
+icon = "🏏"
+
+[[pages]]
+path = "bowler_page.py"
+name = "Bowler Hub"
+icon = "🎯"
+
+[[pages]]
+path = "match_page.py"
+name = "Match Hub"
+icon = "🏟️"
+

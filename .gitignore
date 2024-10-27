@@ -15,7 +15,7 @@ ENV/
 .ipynb_checkpoints
 
 # Streamlit specific
-.session_state/
-streamlit_app.py
-*.streamlit/
-*.streamlit/config.toml
+# .session_state/
+# streamlit_app.py
+# *.streamlit/
+# *.streamlit/config.toml
