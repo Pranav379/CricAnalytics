@@ -1,6 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # Calculates the strike rate 
 def get_matchup_stats(df, player_name, bowling_type, pace_min= None, pace_max= None, deviation_min=None, deviation_max=None):
