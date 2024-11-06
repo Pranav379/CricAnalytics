@@ -34,7 +34,7 @@ def get_matchup_stats(df, player_name, bowling_type, pace_min= None, pace_max= N
     ]
     
     total_runs = player_data['batruns'].sum()
-    total_dismissals = player_data['dismissal'].dropna().sum()
+    total_dismissals = int(player_data['dismissal'].dropna().count())
     
     #Avoids divison by zero
     if total_balls == 0:
@@ -50,5 +50,3 @@ def get_matchup_stats(df, player_name, bowling_type, pace_min= None, pace_max= N
     }
     
     return stats
-
-print(get_matchup_stats(df, "Faf du Plessis", "RM"))
