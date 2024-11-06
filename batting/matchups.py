@@ -1,4 +1,5 @@
 import pandas as pd
+df = pd.read_csv('./data/ipl-hawkeye-data.csv')
 
 # Calculates the strike rate 
 def get_matchup_stats(df, player_name, bowling_type, pace_min= None, pace_max= None, deviation_min=None, deviation_max=None):
@@ -17,13 +18,23 @@ def get_matchup_stats(df, player_name, bowling_type, pace_min= None, pace_max= N
     if deviation_min is not None:
         player_data = df.loc[(df['deviation'] > deviation_min)]
         
-    # Exclude extras from runs and balls faced
-    player_data = player_data[~player_data['extra_type'].isin(['bye', 'legbye', 'noball', 'wide'])]
+    # Exclude byes and legbyes as they are insufficent 
+    player_data = player_data[
+        (player_data['noball'] == 0) &
+        (player_data['wide'] == 0) 
+    ]
+    
     
     #calculates strike rate by getting bowl_style
     total_balls = player_data.shape[0]
+    #Exclude noballs and wides for runs
+    player_data = player_data[
+        (player_data['byes'] == 0) &
+        (player_data['legbyes'] == 0)
+    ]
+    
     total_runs = player_data['batruns'].sum()
-    total_dismissals = player_data['dismissal'].sum()
+    total_dismissals = player_data['dismissal'].dropna().sum()
     
     #Avoids divison by zero
     if total_balls == 0:
@@ -39,3 +50,5 @@ def get_matchup_stats(df, player_name, bowling_type, pace_min= None, pace_max= N
     }
     
     return stats
+
+print(get_matchup_stats(df, "Faf du Plessis", "RM"))
