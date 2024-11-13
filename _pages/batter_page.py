@@ -69,7 +69,24 @@ if batter:
         title=f"Wagon Wheel for {batter}"
     ))
 
+    TYPES = ["SLA", "RM", "LBG", "RF", "RFM", "LMF", "OB", "LWS", "LFM", "LM", "LB", "LF", "OB/LB", "RM/OB/LB"]     # CHANGE LATER
+
+    matchups = []
+
+    for bowling_type in TYPES:
+        matchup = get_matchup_stats(ipl_data, batter, bowling_type)
+        balls = matchup["Total Balls"]
+        sr = matchup['Strike Rate']
+        if balls:
+            runs = round(balls * sr / 100)
+        dismissals = matchup['Dismissals']
+
+        matchups.append([bowling_type, runs, balls, dismissals, sr])
+
+    matchup_stats = pd.DataFrame(matchups, columns = ["Bowling Type", "Runs", "Balls", "Dismissals", "SR"])
+
     left.subheader("Matchups")
+    left.dataframe(matchup_stats, hide_index = True)
 
 
 
