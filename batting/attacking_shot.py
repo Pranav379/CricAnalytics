@@ -46,9 +46,6 @@ def attacking_shots(df, playername, season):
     return attacking
 
 
-print(attacking_shots(df, "Virat Kohli", 2024))
-
-
     
 
 
