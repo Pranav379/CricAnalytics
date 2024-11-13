@@ -1,33 +1,38 @@
 
-
-
-
-def player_agg_stats(df, playername):
+def player_agg_stats(df, player_name):
 
     #filter the data to include only records for the specified player
-    playerdata = df[df['bat'] == playername]
+    player_data = df[df['bat'] == player_name]
     
     #calculate total runs scored
-    sum_runs = playerdata['batruns'].sum()
+    total_runs = player_data['batruns'].sum()
     
     #count total dismissals
-    total_dismissals = playerdata['out'].sum() 
+    total_dismissals = player_data['out'].sum()  #'out' is 1 if dismissed, 0 otherwise
     
-    #calculate dot % 
-    total_balls_faced = playerdata.shape[0]
-    dot_balls = playerdata[playerdata['batruns'] == 0].shape[0]
-    dot_percentage = (dot_balls / total_balls_faced) * 100
+    # Calculate Dot % (percentage of dot balls faced)
+    #do not include balls with extras from balls faced
+    valid_balls = player_data[(player_data['byes'] == 0) & 
+                              (player_data['legbyes'] == 0) & 
+                              (player_data['noballs'] == 0) & 
+                              (player_data['wides'] == 0)]
+    total_balls_faced = valid_balls.shape[0]
     
-    #calculate boundary % (from 4s and 6s)
-    boundaries = playerdata[playerdata['batruns'].isin([4, 6])].shape[0]
-    boundary_percentage = (boundaries / total_balls_faced) * 100
+    #count dot balls only from valid balls (excluding extras)
+    dot_balls = valid_balls[valid_balls['batruns'] == 0].shape[0]
+    dot_percentage = (dot_balls / total_balls_faced) * 100 if total_balls_faced > 0 else 0
     
-    #gets the stats 
+    #calculate Boundary % (percentage of boundaries, 4s or 6s)
+    boundaries = valid_balls[valid_balls['batruns'].isin([4, 6])].shape[0]
+    boundary_percentage = (boundaries / total_balls_faced) * 100 if total_balls_faced > 0 else 0
+    
+    #store results in a dictionary
     stats = {
-        "Runs": sum_runs,
+        "Runs": total_runs,
         "Dismissals": total_dismissals,
         "Dot %": dot_percentage,
         "Boundary %": boundary_percentage
     }
     
     return stats
+
