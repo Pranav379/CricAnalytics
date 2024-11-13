@@ -11,11 +11,9 @@ def player_agg_stats(df, player_name):
     total_dismissals = player_data['out'].sum()  #'out' is 1 if dismissed, 0 otherwise
     
     # Calculate Dot % (percentage of dot balls faced)
-    #do not include balls with extras from balls faced
-    valid_balls = player_data[(player_data['byes'] == 0) & 
-                              (player_data['legbyes'] == 0) & 
-                              (player_data['noballs'] == 0) & 
-                              (player_data['wides'] == 0)]
+    # do not include balls with wides for balls faced
+    valid_balls = player_data[(player_data['wide'] == 0)]
+
     total_balls_faced = valid_balls.shape[0]
     
     #count dot balls only from valid balls (excluding extras)
@@ -29,6 +27,7 @@ def player_agg_stats(df, player_name):
     #store results in a dictionary
     stats = {
         "Runs": total_runs,
+        "Balls" : total_balls_faced,
         "Dismissals": total_dismissals,
         "Dot %": dot_percentage,
         "Boundary %": boundary_percentage
