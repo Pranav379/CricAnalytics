@@ -3,19 +3,19 @@ import altair as alt
 import streamlit as st
 
 def getZones(playername, df, seasons=None, venues=None):
-    print(playername)
+    # print(playername)
     batter = df.loc[df['bat'] == playername]  
 
     if seasons:
-        print(seasons)
+        # print(seasons)
         batter = batter[batter['season'].isin(seasons)]  
-    print(venues)
+    # print(venues)
     if venues:
         venue_pattern = '|'.join(venues)
-        print(venue_pattern)
+        # print(venue_pattern)
         batter = batter[batter['ground'].str.contains(venue_pattern, case=False, na=False)]
     
-    print(batter) 
+    # print(batter) 
     zones = [0, 0, 0, 0, 0, 0, 0, 0]
 
     for row in batter.itertuples(index=True, name="Row"):
@@ -51,7 +51,8 @@ def wagon_wheel(batter, ipl_data,seasons,venues):
 
     final_chart = chart + text
     
+    return final_chart
 
-    st.altair_chart(final_chart.properties(
-        title="Cricket Wagon Wheel: Shot Distribution by Region"
-    ))
+    # return st.altair_chart(final_chart.properties(
+    #     title="Cricket Wagon Wheel: Shot Distribution by Region"
+    # ))

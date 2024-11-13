@@ -2,7 +2,7 @@ import pandas as pd
 
 def calculate_10_ball_sr(df, batter_name, season):
 
-    batter_data = df.loc[(df['bat'] == batter_name) & (df['season'] == season)]
+    batter_data = df.loc[(df['bat'] == batter_name) & (df['season'].isin(season))]
     if 'batruns' not in batter_data.columns:
         return "Column 'batruns' not found in data."
         
@@ -15,7 +15,6 @@ def calculate_10_ball_sr(df, batter_name, season):
     #iterate through each match inning for batter
     for _, group in groups:
         first_10 = group.head(10)
-        print(first_10['p_match'].value_counts())
 
         total_runs = first_10['batruns'].sum()
         
