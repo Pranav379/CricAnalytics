@@ -37,22 +37,23 @@ def wagon_wheel(batter, ipl_data,seasons,venues):
     return final_chart
 
 def getZones(playername, df, seasons=None, venues=None):
-    print(playername)
+    # print(playername)
     batter = df.loc[df['bat'] == playername]  
 
     if seasons:
-        print(seasons)
+        # print(seasons)
         batter = batter[batter['season'].isin(seasons)]  
-    print(venues)
+    # print(venues)
     if venues:
         venue_pattern = '|'.join(venues)
         print(venue_pattern)
         batter = batter[batter['ground'].isin(venues)]
     
-    print(batter) 
+    # print(batter) 
     zones = [0, 0, 0, 0, 0, 0, 0, 0]
 
     for row in batter.itertuples(index=True, name="Row"):
         zones[int(row.wagonZone) - 1] += row[13]
 
     return zones
+
