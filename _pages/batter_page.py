@@ -65,7 +65,7 @@ if batter:
     right.write("")
     right.write("")
     right.altair_chart(wheel.properties(
-        title=f"Wagon Wheel for {batter}"
+        title=f"Run Distribution Wagon Wheel for {batter}"
     ))
 
     TYPES = ["SLA", "RM", "LBG", "RF", "RFM", "LMF", "OB", "LWS", "LFM", "LM", "LB", "LF", "OB/LB", "RM/OB/LB"]     # CHANGE LATER

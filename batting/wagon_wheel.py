@@ -7,7 +7,7 @@ def wagon_wheel(batter, ipl_data,seasons,venues):
     values = getZones(batter, ipl_data,seasons, venues)  
     equal_angle = 45  
     source = pd.DataFrame({
-        "Zones": zones, 
+        "Zone": zones, 
         "value": [equal_angle] * len(zones), 
         "shots": values,
         "angle": [i * equal_angle + equal_angle / 2 for i in range(len(zones))] ,
@@ -18,8 +18,8 @@ def wagon_wheel(batter, ipl_data,seasons,venues):
     chart = alt.Chart(source).mark_arc(innerRadius=50).encode(
         color=alt.Color(field="shots", type="ordinal"), 
         theta=alt.Theta(field="value", type="quantitative"),  
-        order = alt.Order(field="Zones"),
-        tooltip=["Zones", "Zones"]
+        order = alt.Order(field="Zone"),
+        tooltip=["Zone", "Zone"]
     )
     
 
@@ -31,29 +31,23 @@ def wagon_wheel(batter, ipl_data,seasons,venues):
     
 
     final_chart = chart + text
-    st.altair_chart(final_chart.properties(
-        title="Runs Scored Distribution by Region"
-    ))
     return final_chart
 
 def getZones(playername, df, seasons=None, venues=None):
-    # print(playername)
     batter = df.loc[df['bat'] == playername]  
-
+    col = df.columns.get_loc('batruns')
     if seasons:
-        # print(seasons)
         batter = batter[batter['season'].isin(seasons)]  
-    # print(venues)
+
     if venues:
         venue_pattern = '|'.join(venues)
         print(venue_pattern)
         batter = batter[batter['ground'].isin(venues)]
-    
-    # print(batter) 
+
     zones = [0, 0, 0, 0, 0, 0, 0, 0]
 
     for row in batter.itertuples(index=True, name="Row"):
-        zones[int(row.wagonZone) - 1] += row[13]
+        zones[int(row.wagonZone) - 1] += row[col]
 
     return zones
 
