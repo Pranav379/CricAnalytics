@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from data.utils import load_hawkeye_data
-from batting.wagon_wheel import getZones
+from batting.wagon_wheel import wagon_wheel
 import altair as alt
 st.title("Batter Hub")
 
@@ -39,37 +39,6 @@ else:
 
 
 
-def wagon_wheel(batter, ipl_data,seasons,venues):
-    zones = [1,2,3,4,5,6,7,8] 
-    values = getZones(batter, ipl_data,seasons, venues)  
-    equal_angle = 45  
-    source = pd.DataFrame({
-        "Zones": zones, 
-        "value": [equal_angle] * len(zones), 
-        "shots": values,
-        "angle": [i * equal_angle + equal_angle / 2 for i in range(len(zones))] 
-    })
-
-    chart = alt.Chart(source).mark_arc(innerRadius=50).encode(
-        theta=alt.Theta(field="value", type="quantitative"),  
-        color=alt.Color(field="Zones", type="nominal"),
-        tooltip=["Zones", "shots"]  
-    )
-    
-
-    text = alt.Chart(source).mark_text(size=12, color='black').encode(
-        theta=alt.Theta(field="angle", type="quantitative"), 
-        radius=alt.value(100), 
-        text=alt.Text(field="shots", type="quantitative")  
-    )
-    
-
-    final_chart = chart + text
-    
-
-    st.altair_chart(final_chart.properties(
-        title="Cricket Wagon Wheel: Shot Distribution by Region"
-    ))
 
 
 wagon_wheel(batter, ipl_data,seasons,venues)
