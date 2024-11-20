@@ -4,7 +4,7 @@ df = pd.read_csv("../data/ipl-hawkeye-data.csv")
 
 def attacking_shots(df, playername, ground, year):
 
-    #New data frame to filter based on batter and year
+    #New data frame to filter based on batter, year, and ground
     df2 = df.copy()
     if ((ground is None) and (year is None)):
         df2 = df[df['bat'] == playername]
