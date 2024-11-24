@@ -2,20 +2,25 @@
 import matplotlib.pyplot as plt
 import streamlit as st
 
-def plot_pitcher_game_progression(dataframe):
-    # Dropdown menu to select a bowler
-    selected_bowler = st.selectbox("Select a Bowler", dataframe['bowl'].unique())
+def plot_pitcher_game_progression(df, player_name, seasons=None, venues=None):
+    player_data = df 
+    
+    player_data = player_data[player_data['bowl'].str.contains(player_name)]
 
+    if seasons:
+        player_data = player_data.loc[player_data['season'].isin(seasons)]
 
+    if venues:
+        player_data = player_data.loc[player_data['ground'].isin(venues)]
+
+    selected_bowler = player_name
     selected_location = st.selectbox("Choose an location:", ("Stump", "Release","Crease","Bounce","Impact"))
-    # Filter data for the selected bowler
-    bowler_data = dataframe[dataframe['bowl'] == selected_bowler]
 
-    selected_bowl_type = bowler_data['bowl_style'].unique()
+    selected_bowl_type = player_data['bowl_style'].unique()
     st.write("Selected bowler uses "+selected_bowl_type[0]+" bowling style.")
-    dismissed = bowler_data[bowler_data['out'] == True]
-    not_dismissed_high_runs = bowler_data[(bowler_data['out'] == False) & (bowler_data['batruns']>3)]
-    not_dismissed_low_runs=bowler_data[(bowler_data['out']== False) & (bowler_data['batruns']<4)]
+    dismissed = player_data[player_data['out'] == True]
+    not_dismissed_high_runs = player_data[(player_data['out'] == False) & (player_data['batruns']>3)]
+    not_dismissed_low_runs=player_data[(player_data['out']== False) & (player_data['batruns']<4)]
     
     fig, ax = plt.subplots()
 

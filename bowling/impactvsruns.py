@@ -2,22 +2,25 @@ from matplotlib import patches
 import matplotlib.pyplot as plt
 import streamlit as st
 
-def plot_impact_vs_runs(dataframe):
-    selected_season = st.selectbox("Select a Year: ", dataframe['season'].unique(), key="howdy")
-    season_data=dataframe[dataframe['season']==selected_season]
-
-    selected_bowler = st.selectbox("Select a Bowler", season_data['bowl'].unique(), key="howdy1")
-    bowler_data=season_data[season_data['bowl']==selected_bowler]
+def plot_impact_vs_runs(df, player_name, seasons=None, venues=None):
+    player_data = df 
     
-    
-    selected_batter_hand = st.selectbox("Select batter hand:", ("LHB", "RHB"), key="howdy2")
-    handed_data=bowler_data[bowler_data['bat_hand']==selected_batter_hand]
+    player_data = player_data[player_data['bowl'].str.contains(player_name)]
 
-    handed_data['impactdist']=handed_data['impact_x']-handed_data['stump_x']
+    if seasons:
+        player_data = player_data.loc[player_data['season'].isin(seasons)]
+
+    if venues:
+        player_data = player_data.loc[player_data['ground'].isin(venues)]
+
+    player_data['impactdist']=player_data['impact_x']-player_data['stump_x']
     
     fig, ax=plt.subplots()
-    ax.scatter(handed_data['impactdist'], handed_data['batruns'], color='red', alpha=0.6, label="Dismissal")
+    ax.scatter(player_data['impactdist'], player_data['batruns'], color='red', alpha=0.6, label="Dismissal")
     ax.set_xlim(0, 5)
+    ax.set_title("Impact vs Bat Runs")
+    ax.set_xlabel("Impact")
+    ax.set_ylabel("Bat Runs")
     st.pyplot(fig)
 
 

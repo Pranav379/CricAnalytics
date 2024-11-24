@@ -4,29 +4,30 @@ import streamlit as st
 
 
 # Define function for plotting release points of selected bowler
-def plot_release_points(dataframe):
+def plot_release_points(df, player_name, seasons=None, venues=None):
 
-    selected_season = st.selectbox("Select a Year: ", dataframe['season'].unique())
-    season_data=dataframe[dataframe['season']==selected_season]
+    player_data= df[df['bowl'].str.contains(player_name)]
 
-    selected_bowler = st.selectbox("Select a Bowler", season_data['bowl'].unique())
-    bowler_data=season_data[season_data['bowl']==selected_bowler]
+    if seasons:
+        player_data = player_data.loc[player_data['season'].isin(seasons)]
+
+    if venues:
+        player_data = player_data.loc[player_data['ground'].isin(venues)]
     
-    
-    selected_batter_hand = st.selectbox("Select batter hand:", ("LHB", "RHB"))
-    handed_data=bowler_data[bowler_data['bat_hand']==selected_batter_hand]
-    handed_data['bounce_z']=0
+    selected_batter_hand = st.selectbox("Select batter hand:", ("LHB", "RHB"), key='batter_hand')
+    player_data = player_data[player_data['bat_hand'] == selected_batter_hand]
+    player_data['bounce_z']=0
 
-    selected_location = st.selectbox("Choose an location:", ("Stump", "Release","Crease","Bounce","Impact"))
+    selected_location = st.selectbox("Choose an location:", ("Stump", "Release","Crease","Bounce","Impact"),key="location")
 
 
     # Filter data for the selected bowler
 
-    selected_bowl_type = handed_data['bowl_style'].unique()
+    selected_bowl_type = player_data['bowl_style'].unique()
     st.write("Selected bowler uses "+selected_bowl_type[0]+" bowling style.")
-    dismissed = handed_data[handed_data['out'] == True]
-    not_dismissed_high_runs = handed_data[(handed_data['out'] == False) & (handed_data['batruns']>3)]
-    not_dismissed_low_runs=handed_data[(handed_data['out']== False) & (handed_data['batruns']<4)]
+    dismissed = player_data[player_data['out'] == True]
+    not_dismissed_high_runs = player_data[(player_data['out'] == False) & (player_data['batruns']>3)]
+    not_dismissed_low_runs=player_data[(player_data['out']== False) & (player_data['batruns']<4)]
     
     # fig, ax = plt.subplots()
     fig, (ax, ax1) = plt.subplots(1, 2, figsize=(12, 6), gridspec_kw={'width_ratios': [2, 1]})
@@ -65,7 +66,7 @@ def plot_release_points(dataframe):
     ax.add_patch(rect3)
     ax.set_xlabel("Release Y")
     ax.set_ylabel("Release Z")
-    ax.set_title(f"{selected_location} Points for {selected_bowler}")
+    ax.set_title(f"{selected_location} Points for {player_name}")
     ax.legend()
     
     # Display the plot in Streamlit
@@ -117,7 +118,7 @@ def plot_release_points(dataframe):
     ax1.add_patch(rect4)
     ax1.set_xlabel("Release Y")
     ax1.set_ylabel("Release X")
-    ax1.set_title(f"{selected_location} Points for {selected_bowler}")
+    ax1.set_title(f"{selected_location} Points for {player_name}")
     ax1.legend()
     
     # Display the plot in Streamlit
