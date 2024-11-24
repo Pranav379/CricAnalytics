@@ -64,7 +64,7 @@ if bowler:
         )
 
         st.write(
-            f'Powerplay %: {power_percentage*100:.2f} | Powerplay Control: {power_control:.2f}| Player Deviation: {player_deviation:.2f} | Average Deviation: {average_deviation:.2f}'
+            f'Powerplay %: {power_percentage*100:.2f} | Powerplay Control: {power_control:.2f}| Player Deviation: {player_deviation:.2f} | All Player\'s Average Deviation: {average_deviation:.2f}'
         )
 
         st.write(
