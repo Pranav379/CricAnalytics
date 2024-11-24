@@ -16,7 +16,7 @@ def wagon_wheel(batter, ipl_data,seasons,venues):
     })
 
     chart = alt.Chart(source).mark_arc(innerRadius=50).encode(
-        color=alt.Color(field="shots", type="ordinal"), 
+        color=alt.Color(field="shots", type="ordinal", legend = None), 
         theta=alt.Theta(field="value", type="quantitative"),  
         order = alt.Order(field="Zone"),
         tooltip=["Zone", "Zone"]
@@ -40,8 +40,8 @@ def getZones(playername, df, seasons=None, venues=None):
         batter = batter[batter['season'].isin(seasons)]  
 
     if venues:
-        venue_pattern = '|'.join(venues)
-        print(venue_pattern)
+        # venue_pattern = '|'.join(venues)
+        # print(venue_pattern)
         batter = batter[batter['ground'].isin(venues)]
 
     zones = [0, 0, 0, 0, 0, 0, 0, 0]

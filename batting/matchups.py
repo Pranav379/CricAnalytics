@@ -1,5 +1,8 @@
+
 # Calculates the strike rate 
-def get_matchup_stats(df, player_name, bowling_type, pace_min= None, pace_max= None, deviation_min=None, deviation_max=None):    
+def get_matchup_stats(df, player_name, bowling_type, venues = None, seasons = None,
+                      pace_min= None, pace_max= None, deviation_min=None, deviation_max=None): 
+       
     #accounts for pace calculations
     if pace_max is not None:
         df = df.loc[(df['release_speed'] < pace_max)]
@@ -14,6 +17,13 @@ def get_matchup_stats(df, player_name, bowling_type, pace_min= None, pace_max= N
     
     #fetches specific player
     player_data = df[(df['bat'] == player_name) & (df['bowl_style'] == bowling_type)]
+
+    if venues:
+        player_data = player_data.loc[player_data['ground'].isin(venues)]
+    
+    if seasons:
+        player_data = player_data.loc[player_data['season'].isin(seasons)]
+
     
     # Exclude byes and legbyes as they are insufficent 
     player_data = player_data[
