@@ -86,6 +86,29 @@ if batter:
 
 
 
+    # Dispaly shot metrics
+    st.subheader("Attacking Shot Data")
+
+    shots_data = attacking_shots(ipl_data, batter, venues, years)
+    shots = shots_data['Shot Data']
+
+
+
+    st.markdown(f"""**Attacking Shot %**: {shots_data['Attacking Shot %']:.2f} | 
+                **Attacking Shot SR**: {shots_data['Attacking Efficacy'] * 100:.2f} | 
+                **Control %** : {shots_data['Batter Control %']:.2f} 
+                """)
+
+
+    st.markdown("##### Productive Attacking Shots")
+
+
+    attack_shots = shots.loc[shots['Attacking'] == 1]
+    attack_shots = attack_shots.rename(columns = {'runs_scored': 'runs', 'dismissal_count': 'outs', })
+    st.dataframe(attack_shots.sort_values(by = ['balls'], ascending = False).iloc[:5, :-1])
+
+
+
 
 
 
