@@ -71,15 +71,15 @@ if bowler:
             f'Middle Overs %: {middle_percentage*100:.2f}| Middle Overs Control: {middle_control:.2f}| Death Overs %: {death_percentage*100:.2f} | Death Overs Control: {death_control:.2f}'
         )
 
-    
-    st.subheader("Release Points")
-    plot_release_points(ipl_data,bowler, years, venues)
 
-    st.subheader("Game Progression")
-    plot_pitcher_game_progression(ipl_data, bowler, years, venues)
+        st.subheader("Release Points")
+        plot_release_points(ipl_data,bowler, years, venues)
 
-    st.subheader("Bowler Lift")
-    plot_bowler_lift_dip(ipl_data,bowler, years, venues)
+        st.subheader("Game Progression")
+        plot_pitcher_game_progression(ipl_data, bowler, years, venues)
 
-    st.subheader("Impact vs Bat Runs")
-    plot_impact_vs_runs(ipl_data,bowler, years, venues)
+        st.subheader("Bowler Lift")
+        plot_bowler_lift_dip(ipl_data,bowler, years, venues)
+
+        st.subheader("Impact vs Bat Runs")
+        plot_impact_vs_runs(ipl_data,bowler, years, venues)
