@@ -1,8 +1,14 @@
 
-def player_agg_stats(df, player_name):
+def player_agg_stats(df, player_name, seasons = None, venues = None):
 
     #filter the data to include only records for the specified player
     player_data = df[df['bat'] == player_name]
+
+    if seasons:
+        player_data = player_data.loc[player_data['season'].isin(seasons)]
+
+    if venues:
+        player_data = player_data.loc[player_data['ground'].isin(venues)]
     
     #calculate total runs scored
     total_runs = player_data['batruns'].sum()
@@ -30,7 +36,8 @@ def player_agg_stats(df, player_name):
         "Balls" : total_balls_faced,
         "Dismissals": total_dismissals,
         "Dot %": dot_percentage,
-        "Boundary %": boundary_percentage
+        "Boundary %": boundary_percentage,
+        "Innings" : player_data['p_match'].nunique()
     }
     
     return stats

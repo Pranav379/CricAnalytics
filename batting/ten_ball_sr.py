@@ -1,8 +1,15 @@
-import pandas as pd
 
-def calculate_10_ball_sr(df, batter_name, season):
 
-    batter_data = df.loc[(df['bat'] == batter_name) & (df['season'].isin(season))]
+def calculate_10_ball_sr(df, batter_name, seasons = None, venues = None):
+
+    batter_data = df.loc[(df['bat'] == batter_name)]
+
+    if seasons:
+        batter_data = batter_data.loc[batter_data['season'].isin(seasons)]
+
+    if venues:
+        batter_data = batter_data.loc[batter_data['ground'].isin(venues)]
+
     if 'batruns' not in batter_data.columns:
         return "Column 'batruns' not found in data."
         

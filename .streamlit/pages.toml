@@ -13,8 +13,4 @@ path = "_pages/bowler_page.py"
 name = "Bowler Hub"
 icon = "🎯"
 
-[[pages]]
-path = "_pages/match_page.py"
-name = "Match Hub"
-icon = "🏟️"
 
