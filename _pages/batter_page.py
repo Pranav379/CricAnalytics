@@ -107,9 +107,11 @@ if batter:
     attack_shots = attack_shots.rename(columns = {'runs_scored': 'runs', 'dismissal_count': 'outs', })
     st.dataframe(attack_shots.sort_values(by = ['balls'], ascending = False).iloc[:5, :-1])
 
+    # Display stats based on entry point
+    st.subheader("Entry Point Stats")
 
-
-
+    agg_stats_entry = get_agg_stats_by_entry_point(ipl_data, batter, years, venues)
+    st.dataframe(agg_stats_entry)
 
 
 
