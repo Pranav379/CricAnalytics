@@ -1,17 +1,21 @@
 import pandas as pd
 
-df = pd.read_csv("data/ipl-hawkeye-data.csv")
 
-def attacking_shots(df, playername, ground, year):
+def attacking_shots(df, playername = None, ground = None, year = None):
 
     #New data frame to filter based on batter, year, and ground
     df2 = df.copy()
-    if ((ground is None) and (year is None)):
-        df2 = df[df['bat'] == playername]
-    else:
-        df2 = df[(df['bat'] == playername) & (df['season'] == year) & (df['ground'] == ground)]
-    
 
+    if playername:
+        df2 = df.loc[df['bat'] == playername]
+    
+    if ground:
+        df2 = df2.loc[(df2['ground'].isin(ground))]
+    
+    if year:
+        df2 = df2.loc[(df2['season'].isin(year))]
+
+    
     shot_types = df2.groupby('shot')
     shot_output = shot_types.agg(
         runs_scored = ('batruns', 'sum'),
@@ -47,7 +51,8 @@ def attacking_shots(df, playername, ground, year):
     attacking = {
         "Attacking Shot %" : attack_pct,
         "Attacking Efficacy" : attack_efficacy,
-        "Batter Control %" : control_pct
+        "Batter Control %" : control_pct,
+        "Shot Data": shot_output
     }
 
     return attacking
