@@ -31,14 +31,14 @@ st.markdown(
         margin: auto;
         padding: 50px 5px 20px;
         position: relative;
-        min-height: 800px;
+        min-height: 950px;
     }}
     .left-image {{
         position: absolute;
-        left: -10px;
+        left: -30px;
         top: 50px;
-        width: 480px;   /* slightly increased width */
-        height: 750px;  /* drastically increased height */
+        width: 520px;   /* slightly more increased width */
+        height: 900px;  /* way more increased height */
     }}
     .left-image img {{
         width: 100%;
@@ -48,10 +48,10 @@ st.markdown(
     }}
     .right-image {{
         position: absolute;
-        right: -10px;
+        right: -30px;
         top: 50px;
-        width: 480px;   /* slightly increased width */
-        height: 750px;  /* drastically increased height */
+        width: 520px;   /* slightly more increased width */
+        height: 900px;  /* way more increased height */
     }}
     .right-image img {{
         width: 100%;
@@ -86,15 +86,15 @@ st.markdown(
     /* Align trophy image left edge with text */
     .center-image-container {{
         max-width: 1800px;
-        margin: 10px auto 0;
+        margin: -20px auto 0;
         padding: 0 20px;
         position: relative;
     }}
     .center-image {{
-        height: 450px;  /* moved higher by reducing height slightly */
-        width: 750px;   /* increased width to reach second R in Premier */
+        height: 520px;  /* increased height */
+        width: 680px;   /* slightly reduced width */
         object-fit: contain;
-        margin-left: calc(50% - 375px); /* align left edge with G in Get */
+        margin-left: calc(50% - 340px); /* adjusted for new width */
         display: block;
     }}
     
