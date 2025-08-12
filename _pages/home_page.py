@@ -10,7 +10,7 @@ st.markdown("## Welcome to this interactive dashboard analyzing cricket players 
 st.markdown('## Click on "Batter Hub" and "Bowler Hub" on the sidebar to explore further')
 
 # Create two columns for text and image
-col1, col2 = st.columns([3, 2])  # Adjust ratio for spacing
+col1, col2 = st.columns([4, 1])  # Adjust ratio for spacing
 
 with col1:
     st.markdown("# Get ready for a chase!")
