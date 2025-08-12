@@ -38,7 +38,7 @@ st.markdown(
         left: -10px;
         top: 50px;
         width: 480px;   /* slightly increased width */
-        height: 1000px;  /* drastically increased height */
+        height: 750px;  /* drastically increased height */
     }}
     .left-image img {{
         width: 100%;
@@ -51,7 +51,7 @@ st.markdown(
         right: -10px;
         top: 50px;
         width: 480px;   /* slightly increased width */
-        height: 1000px;  /* drastically increased height */
+        height: 750px;  /* drastically increased height */
     }}
     .right-image img {{
         width: 100%;
@@ -91,8 +91,8 @@ st.markdown(
         position: relative;
     }}
     .center-image {{
-        height: 250px;  /* moved higher by reducing height slightly */
-        width: 700px;   /* increased width to reach second R in Premier */
+        height: 450px;  /* moved higher by reducing height slightly */
+        width: 750px;   /* increased width to reach second R in Premier */
         object-fit: contain;
         margin-left: calc(50% - 375px); /* align left edge with G in Get */
         display: block;
