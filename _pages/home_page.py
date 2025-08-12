@@ -23,68 +23,70 @@ st.markdown(
       to {{ transform: rotate(360deg); }}
     }}
 
-    .container {{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 70px;
+    /* Use CSS grid for main layout */
+    .main-grid {{
+        display: grid;
+        grid-template-columns: 20vw 1fr 20vw;  /* wide left and right columns */
+        grid-template-rows: auto auto;
+        gap: 20px 40px;
         max-width: 1600px;
         margin: auto;
         padding-top: 20px;
-    }}
-    .side-image {{
-        flex: 3;  /* much bigger flex */
-        max-width: 600px;  /* drastically increased max width */
-        height: 700px;  /* drastically increased height */
-        display: flex;
-        justify-content: center;
         align-items: center;
     }}
-    .side-image img {{
-        max-height: 100%;
-        width: auto;
+
+    .left-image, .right-image {{
+        width: 100%;
+        height: auto;
+        max-height: 80vh;  /* big height but limited to viewport */
         object-fit: contain;
+        justify-self: stretch;
+        align-self: center;
     }}
-    .middle-content {{
-        flex: 4.5;
+
+    .center-text {{
+        grid-column: 2;
+        grid-row: 1;
+        text-align: center;
         max-width: 700px;
-        position: relative;
+        justify-self: center;
     }}
+
     .heading {{
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 12px;
         margin-bottom: 0;
         font-size: 2.5rem;
         font-weight: 600;
     }}
+
     .heading span {{
         display: inline-block;
     }}
+
     .spin {{
         height: 1.5em;
         animation: spin 0.75s linear infinite;
     }}
 
-    /* Align center image left edge with 'G' in "Get" */
-    .center-image-container {{
-        max-width: 700px;
-        margin-top: 40px;
-        position: relative;
-    }}
+    /* Center image aligned exactly under "Get" */
     .center-image {{
-        height: 600px;  /* increase height more */
-        width: 520px;   /* width less than height */
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start; /* align left */
+        margin-left: 1.7rem;  /* tweak this to align with G in Get */
+        height: 650px;  /* taller */
+        width: auto;
         object-fit: contain;
-        margin-left: 54px; /* tweak this margin to align left edge with G */
     }}
+
     </style>
 
-    <div class="container">
-        <div class="side-image">
-            <img src="data:image/jpeg;base64,{encoded_left}" />
-        </div>
-        <div class="middle-content">
+    <div class="main-grid">
+        <img src="data:image/jpeg;base64,{encoded_left}" alt="Left Team" class="left-image" />
+        <div class="center-text">
             <h1>IPL Hawkeye Dashboard</h1>
             <h2>Welcome to this interactive dashboard analyzing cricket players in the 2023 and 2024 Indian Premier League (IPL) Seasons!</h2>
             <h2>Click on "Batter Hub" and "Bowler Hub" on the sidebar to explore further</h2>
@@ -93,13 +95,9 @@ st.markdown(
                 <img src="data:image/png;base64,{encoded_cricketball}" class="spin" />
             </div>
         </div>
-        <div class="side-image">
-            <img src="data:image/jpeg;base64,{encoded_right}" />
-        </div>
-    </div>
-
-    <div class="center-image-container">
-        <img src="data:image/jpeg;base64,{encoded_center}" class="center-image" />
+        <img src="data:image/jpeg;base64,{encoded_right}" alt="Right Team" class="right-image" />
+        
+        <img src="data:image/jpeg;base64,{encoded_center}" alt="Trophy" class="center-image" />
     </div>
     """,
     unsafe_allow_html=True,
