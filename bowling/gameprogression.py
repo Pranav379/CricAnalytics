@@ -14,7 +14,7 @@ def plot_pitcher_game_progression(df, player_name, seasons=None, venues=None):
         player_data = player_data.loc[player_data['ground'].isin(venues)]
 
     selected_bowler = player_name
-    selected_location = st.selectbox("Choose an location:", ("Stump", "Release","Crease","Bounce","Impact"))
+    selected_location = st.selectbox("Choose a location:", ("Stump", "Release","Crease","Bounce","Impact"))
 
     selected_bowl_type = player_data['bowl_style'].unique()
     st.write("Selected bowler uses "+selected_bowl_type[0]+" bowling style.")
