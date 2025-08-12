@@ -28,15 +28,15 @@ st.markdown(
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 30px;
-        max-width: 1200px;
+        gap: 50px;
+        max-width: 1400px;  /* wider container for bigger side images */
         margin: auto;
         padding-top: 20px;
     }}
     .side-image {{
-        flex: 1;
-        max-width: 180px;
-        height: 280px;  /* Adjust to match text height */
+        flex: 1.5;  /* increase from 1 to 1.5 to give more width */
+        max-width: 280px;  /* max width of side images */
+        height: 300px;  /* height roughly matching text block */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -47,7 +47,8 @@ st.markdown(
         object-fit: contain;
     }}
     .middle-content {{
-        flex: 3;
+        flex: 4;  /* middle content wider than before */
+        max-width: 600px;
     }}
     .heading {{
         display: flex;
@@ -83,11 +84,11 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Centered image below the top section
+# Centered trophy image below the top section (bigger size)
 st.markdown(
     f"""
     <div style="text-align: center; margin-top: 40px;">
-        <img src="data:image/jpeg;base64,{encoded_center}" style="max-width: 200px;" />
+        <img src="data:image/jpeg;base64,{encoded_center}" style="width: 380px; height: auto;" />
     </div>
     """,
     unsafe_allow_html=True,
