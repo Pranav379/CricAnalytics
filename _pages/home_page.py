@@ -35,14 +35,14 @@ st.markdown(
     }}
     .left-image {{
         position: absolute;
-        left: -200px;
+        left: -250px;
         top: 50px;
         width: 600px;   /* increased width and matching right image */
         height: 750px;  /* container height */
     }}
     .left-image img {{
         width: 110%;    /* slightly wider than container */
-        height: 120%;   /* taller than container to stretch */
+        height: 140%;   /* taller than container to stretch */
         object-fit: fill;  /* stretch to fill dimensions */
         border-radius: 8px;
     }}
@@ -55,7 +55,7 @@ st.markdown(
     }}
     .right-image img {{
         width: 110%;    /* slightly wider than container */
-        height: 120%;   /* taller than container to stretch */
+        height: 140%;   /* taller than container to stretch */
         object-fit: fill;  /* stretch to fill dimensions */
         border-radius: 8px;
     }}
