@@ -49,13 +49,13 @@ st.markdown(
     .middle-content {{
         flex: 3;
     }}
-    .heading {
+    .heading {{
         display: flex;
         align-items: center;
         gap: 12px;
         margin-bottom: 0;
         font-size: 2.5rem;
-    }
+    }}
     .spin {{
         height: 1.5em;
         animation: spin 0.75s linear infinite;
