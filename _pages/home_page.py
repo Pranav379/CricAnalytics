@@ -14,7 +14,7 @@ st.markdown(
     """
     <h1 style='display: flex; align-items: center; gap: 10px;'>
         Get ready for a chase!
-        <img src='images/cricketball.png' style='height: 1em;'>
+        <img src='https://github.com/Pranav379/CricAnalytics/blob/main/images/cricketball.png' style='height: 1em;'>
     </h1>
     """,
     unsafe_allow_html=True
