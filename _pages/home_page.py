@@ -29,34 +29,34 @@ st.markdown(
         gap: 70px;
         max-width: 1800px;
         margin: auto;
-        padding: 50px 20px 20px;
+        padding: 50px 5px 20px;
         position: relative;
-        min-height: 650px;
+        min-height: 800px;
     }}
     .left-image {{
         position: absolute;
-        left: 20px;
+        left: -10px;
         top: 50px;
-        width: 450px;   /* increased width */
-        height: 600px;  /* increased height (more than width) */
+        width: 480px;   /* slightly increased width */
+        height: 750px;  /* drastically increased height */
     }}
     .left-image img {{
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 8px;
     }}
     .right-image {{
         position: absolute;
-        right: 20px;
+        right: -10px;
         top: 50px;
-        width: 450px;   /* increased width */
-        height: 600px;  /* increased height (more than width) */
+        width: 480px;   /* slightly increased width */
+        height: 750px;  /* drastically increased height */
     }}
     .right-image img {{
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 8px;
     }}
     .middle-content {{
@@ -86,15 +86,15 @@ st.markdown(
     /* Align trophy image left edge with text */
     .center-image-container {{
         max-width: 1800px;
-        margin: 40px auto 0;
+        margin: 10px auto 0;
         padding: 0 20px;
         position: relative;
     }}
     .center-image {{
-        height: 650px;  /* increased height more */
-        width: 500px;   /* width less than height */
+        height: 450px;  /* moved higher by reducing height slightly */
+        width: 750px;   /* increased width to reach second R in Premier */
         object-fit: contain;
-        margin-left: calc(50% - 350px); /* align with text left edge */
+        margin-left: calc(50% - 375px); /* align left edge with G in Get */
         display: block;
     }}
     
