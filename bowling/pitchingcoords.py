@@ -18,7 +18,7 @@ def plot_release_points(df, player_name, seasons=None, venues=None):
     player_data = player_data[player_data['bat_hand'] == selected_batter_hand]
     player_data['bounce_z']=0
 
-    selected_location = st.selectbox("Choose an location:", ("Stump", "Release","Crease","Bounce","Impact"),key="location")
+    selected_location = st.selectbox("Choose a location:", ("Stump", "Release","Crease","Bounce","Impact"),key="location")
 
 
     # Filter data for the selected bowler
