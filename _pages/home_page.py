@@ -35,7 +35,7 @@ st.markdown(
     }}
     .left-image {{
         position: absolute;
-        left: -100px;
+        left: -125px;
         top: 50px;
         width: 600px;   /* increased width and matching right image */
         height: 750px;  /* container height */
