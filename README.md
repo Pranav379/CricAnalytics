@@ -1,4 +1,4 @@
-Public Link: [https://cricanalytics.streamlit.app/]([url](https://cricanalytics.streamlit.app/))
+Public Link: [https://cricanalytics.streamlit.app/](url)
 
 # CricAnalytics
 This project contains the code that was used to develop the Streamlit-based cricket dashboard.
