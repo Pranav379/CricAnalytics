@@ -23,7 +23,7 @@ with col_left:
     st.markdown(
         f"""
         <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-            <img src="data:image/jpg;base64,{encoded_left}" style="max-width: 150px;">
+            <img src="data:image/jpeg;base64,{encoded_left}" style="max-width: 150px;">
         </div>
         """,
         unsafe_allow_html=True
@@ -56,7 +56,7 @@ with col_right:
     st.markdown(
         f"""
         <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-            <img src="data:image/jpg;base64,{encoded_right}" style="max-width: 150px;">
+            <img src="data:image/jpeg;base64,{encoded_right}" style="max-width: 150px;">
         </div>
         """,
         unsafe_allow_html=True
@@ -66,7 +66,7 @@ with col_right:
 st.markdown(
     f"""
     <div style="text-align: center; margin-top: 20px;">
-        <img src="data:image/jpg;base64,{encoded_center}" style="max-width: 200px;">
+        <img src="data:image/jpeg;base64,{encoded_center}" style="max-width: 200px;">
     </div>
     """,
     unsafe_allow_html=True
