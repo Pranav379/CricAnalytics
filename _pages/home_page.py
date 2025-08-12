@@ -16,4 +16,4 @@ with col1:
     st.markdown("# Get ready for a chase!")
 
 with col2:
-    st.image("images/cricketball.png", use_column_width=True)
+    st.image("images/cricketball.png")
