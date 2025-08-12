@@ -34,9 +34,9 @@ st.markdown(
         padding-top: 20px;
     }}
     .side-image {{
-        flex: 1.5;  /* increase from 1 to 1.5 to give more width */
-        max-width: 280px;  /* max width of side images */
-        height: 300px;  /* height roughly matching text block */
+        flex: 10;  /* increase from 1 to 1.5 to give more width */
+        max-width: 500px;  /* max width of side images */
+        height: 1000px;  /* height roughly matching text block */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -88,7 +88,7 @@ st.markdown(
 st.markdown(
     f"""
     <div style="text-align: center; margin-top: 40px;">
-        <img src="data:image/jpeg;base64,{encoded_center}" style="width: 380px; height: auto;" />
+        <img src="data:image/jpeg;base64,{encoded_center}" style="width: 500px; height: auto;" />
     </div>
     """,
     unsafe_allow_html=True,
