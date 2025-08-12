@@ -10,5 +10,5 @@ st.markdown("## Welcome to this interactive dashboard analyzing cricket players 
 st.markdown('## Click on "Batter Hub" and "Bowler Hub" on the sidebar to explore further')
 st.markdown("# Get ready for a chase!")
 
-img_url = "https://www.vecteezy.com/png/27730659-fast-cricket-ball-flies-with-great-speed-generative-ai-png.png"
-st.image(img_url)
+image_path = "images/cricket_ball.png"
+st.image(image_path)
