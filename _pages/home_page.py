@@ -31,32 +31,32 @@ st.markdown(
         margin: auto;
         padding: 50px 5px 20px;
         position: relative;
-        min-height: 950px;
+        min-height: 800px;
     }}
     .left-image {{
         position: absolute;
-        left: -50px;
+        left: -30px;
         top: 50px;
-        width: 550px;   /* slightly more increased width */
-        height: 1100px;  /* way more increased height */
+        width: 520px;   /* slightly more increased width */
+        height: 750px;  /* container height */
     }}
     .left-image img {{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+        width: 110%;    /* slightly wider than container */
+        height: 120%;   /* taller than container to stretch */
+        object-fit: fill;  /* stretch to fill dimensions */
         border-radius: 8px;
     }}
     .right-image {{
         position: absolute;
-        right: -50px;
+        right: -30px;
         top: 50px;
-        width: 550px;   /* slightly more increased width */
-        height: 1100px;  /* way more increased height */
+        width: 520px;   /* slightly more increased width */
+        height: 750px;  /* container height */
     }}
     .right-image img {{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+        width: 110%;    /* slightly wider than container */
+        height: 120%;   /* taller than container to stretch */
+        object-fit: fill;  /* stretch to fill dimensions */
         border-radius: 8px;
     }}
     .middle-content {{
@@ -128,12 +128,12 @@ st.markdown(
                 <img src="data:image/png;base64,{encoded_cricketball}" class="spin" />
             </div>
         </div>
-        <div class="right-image">
-            <img src="data:image/jpeg;base64,{encoded_right}" />
-        </div>
     </div>
     <div class="center-image-container">
         <img src="data:image/jpeg;base64,{encoded_center}" class="center-image" />
+    </div>
+    <div class="right-image">
+        <img src="data:image/jpeg;base64,{encoded_right}" />
     </div>
     """,
     unsafe_allow_html=True,
