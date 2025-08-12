@@ -22,71 +22,95 @@ st.markdown(
       from {{ transform: rotate(0deg); }}
       to {{ transform: rotate(360deg); }}
     }}
-
-    /* Use CSS grid for main layout */
-    .main-grid {{
-        display: grid;
-        grid-template-columns: 20vw 1fr 20vw;  /* wide left and right columns */
-        grid-template-rows: auto auto;
-        gap: 20px 40px;
-        max-width: 1600px;
+    .container {{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 70px;
+        max-width: 1800px;
         margin: auto;
         padding-top: 20px;
-        align-items: center;
+        position: relative;
     }}
-
-    .left-image, .right-image {{
+    .left-image {{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 450px;   /* increased width */
+        height: 600px;  /* increased height (more than width) */
+    }}
+    .left-image img {{
         width: 100%;
-        height: auto;
-        max-height: 80vh;  /* big height but limited to viewport */
-        object-fit: contain;
-        justify-self: stretch;
-        align-self: center;
+        height: 100%;
+        object-fit: cover;
     }}
-
-    .center-text {{
-        grid-column: 2;
-        grid-row: 1;
-        text-align: center;
+    .right-image {{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 450px;   /* increased width */
+        height: 600px;  /* increased height (more than width) */
+    }}
+    .right-image img {{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }}
+    .middle-content {{
+        flex: 1;
         max-width: 700px;
-        justify-self: center;
+        margin: 0 auto;
+        text-align: left;
+        position: relative;
+        z-index: 10;
     }}
-
     .heading {{
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 12px;
         margin-bottom: 0;
         font-size: 2.5rem;
         font-weight: 600;
     }}
-
     .heading span {{
         display: inline-block;
     }}
-
     .spin {{
         height: 1.5em;
         animation: spin 0.75s linear infinite;
     }}
-
-    /* Center image aligned exactly under "Get" */
-    .center-image {{
-        grid-column: 2;
-        grid-row: 2;
-        justify-self: start; /* align left */
-        margin-left: 1.7rem;  /* tweak this to align with G in Get */
-        height: 650px;  /* taller */
-        width: auto;
-        object-fit: contain;
+    /* Align trophy image left edge with text */
+    .center-image-container {{
+        max-width: 1800px;
+        margin: 40px auto 0;
+        position: relative;
     }}
-
+    .center-image {{
+        height: 650px;  /* increased height more */
+        width: 500px;   /* width less than height */
+        object-fit: contain;
+        margin-left: calc(50% - 900px + 70px); /* align with text left edge */
+        display: block;
+    }}
+    
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {{
+        .left-image, .right-image {{
+            display: none;
+        }}
+        .center-image {{
+            margin-left: 0;
+            margin: 0 auto;
+        }}
+    }}
     </style>
-
-    <div class="main-grid">
-        <img src="data:image/jpeg;base64,{encoded_left}" alt="Left Team" class="left-image" />
-        <div class="center-text">
+    <div class="container">
+        <div class="left-image">
+            <img src="data:image/jpeg;base64,{encoded_left}" />
+        </div>
+        <div class="middle-content">
             <h1>IPL Hawkeye Dashboard</h1>
             <h2>Welcome to this interactive dashboard analyzing cricket players in the 2023 and 2024 Indian Premier League (IPL) Seasons!</h2>
             <h2>Click on "Batter Hub" and "Bowler Hub" on the sidebar to explore further</h2>
@@ -95,9 +119,12 @@ st.markdown(
                 <img src="data:image/png;base64,{encoded_cricketball}" class="spin" />
             </div>
         </div>
-        <img src="data:image/jpeg;base64,{encoded_right}" alt="Right Team" class="right-image" />
-        
-        <img src="data:image/jpeg;base64,{encoded_center}" alt="Trophy" class="center-image" />
+        <div class="right-image">
+            <img src="data:image/jpeg;base64,{encoded_right}" />
+        </div>
+    </div>
+    <div class="center-image-container">
+        <img src="data:image/jpeg;base64,{encoded_center}" class="center-image" />
     </div>
     """,
     unsafe_allow_html=True,
