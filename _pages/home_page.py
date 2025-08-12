@@ -35,10 +35,10 @@ st.markdown(
     }}
     .left-image {{
         position: absolute;
-        left: -30px;
+        left: -50px;
         top: 50px;
-        width: 520px;   /* slightly more increased width */
-        height: 900px;  /* way more increased height */
+        width: 550px;   /* slightly more increased width */
+        height: 1100px;  /* way more increased height */
     }}
     .left-image img {{
         width: 100%;
@@ -48,10 +48,10 @@ st.markdown(
     }}
     .right-image {{
         position: absolute;
-        right: -30px;
+        right: -50px;
         top: 50px;
-        width: 520px;   /* slightly more increased width */
-        height: 900px;  /* way more increased height */
+        width: 550px;   /* slightly more increased width */
+        height: 1100px;  /* way more increased height */
     }}
     .right-image img {{
         width: 100%;
