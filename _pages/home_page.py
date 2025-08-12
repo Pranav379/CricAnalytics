@@ -15,12 +15,22 @@ with open("images/cricketball.png", "rb") as f:
     img_bytes = f.read()
 encoded_img = base64.b64encode(img_bytes).decode()
 
-# Inline heading with cricket ball that scales with text
+# Inline heading with spinning cricket ball, sized bigger (~1.5em)
 st.markdown(
     f"""
-    <h1 style='display: flex; align-items: center; gap: 10px;'>
+    <style>
+    @keyframes spin {{
+      from {{ transform: rotate(0deg); }}
+      to {{ transform: rotate(360deg); }}
+    }}
+    .spin {{
+      animation: spin 4s linear infinite;
+      height: 1.5em;
+    }}
+    </style>
+    <h1 style='display: flex; align-items: center; gap: 12px;'>
         Get ready for a chase!
-        <img src='data:image/png;base64,{encoded_img}' style='height: 1em;'>
+        <img src='data:image/png;base64,{encoded_img}' class='spin'>
     </h1>
     """,
     unsafe_allow_html=True
