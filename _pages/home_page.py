@@ -12,9 +12,9 @@ def load_base64(image_path):
         return base64.b64encode(f.read()).decode()
 
 encoded_cricketball = load_base64("images/cricketball.png")
-encoded_center = load_base64("images/IPL trophy.jpg")
-encoded_left = load_base64("images/teampic.png")
-encoded_right = load_base64("images/srhwin.png")
+encoded_center = load_base64("images/IPLtrophy.jpg")
+encoded_left = load_base64("images/teampic.jpg")
+encoded_right = load_base64("images/srhwin.jpg")
 
 # Use columns for layout: left img, middle text+spinning ball, right img
 col_left, col_mid, col_right = st.columns([1, 3, 1])
