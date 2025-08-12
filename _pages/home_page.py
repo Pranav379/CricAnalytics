@@ -34,9 +34,9 @@ st.markdown(
         padding-top: 20px;
     }}
     .side-image {{
-        flex: 10;  /* increase from 1 to 1.5 to give more width */
-        max-width: 500px;  /* max width of side images */
-        height: 1000px;  /* height roughly matching text block */
+        flex: 1.5;  /* increase from 1 to 1.5 to give more width */
+        max-width: 280px;  /* max width of side images */
+        height: 300px;  /* height roughly matching text block */
         display: flex;
         justify-content: center;
         align-items: center;
