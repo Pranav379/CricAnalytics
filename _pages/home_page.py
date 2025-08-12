@@ -10,10 +10,10 @@ def load_base64(image_path):
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-encoded_cricketball = load_base64("/images/cricketball.png")      # PNG for spinning ball
-encoded_center = load_base64("/images/IPLtrophy.jpg")          # JPG for center image
-encoded_left = load_base64("/images/teampic.jpg")              # JPG for left image
-encoded_right = load_base64("/images/srhwin.jpg")            # JPG for right image
+encoded_cricketball = load_base64("images/cricketball.png")      # PNG for spinning ball
+encoded_center = load_base64("images/IPLtrophy.jpg")          # JPG for center image
+encoded_left = load_base64("images/teampic.jpg")              # JPG for left image
+encoded_right = load_base64("images/srhwin.jpg")            # JPG for right image
 
 # Create three columns: left, middle, right
 col_left, col_mid, col_right = st.columns([1, 3, 1])
