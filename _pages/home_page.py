@@ -15,7 +15,6 @@ encoded_center = load_base64("images/IPLtrophy.jpg")
 encoded_left = load_base64("images/teampic.jpg")  
 encoded_right = load_base64("images/srhwin.jpg")  
 
-# Custom HTML + CSS top section: left img, middle text + spinning ball, right img side by side
 st.markdown(
     f"""
     <style>
@@ -28,15 +27,15 @@ st.markdown(
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 50px;
-        max-width: 1400px;  /* wider container for bigger side images */
+        gap: 60px;
+        max-width: 1500px;  /* wider container */
         margin: auto;
         padding-top: 20px;
     }}
     .side-image {{
-        flex: 1.5;  /* increase from 1 to 1.5 to give more width */
-        max-width: 280px;  /* max width of side images */
-        height: 300px;  /* height roughly matching text block */
+        flex: 2;  /* increased flex for wider images */
+        max-width: 350px;  /* bigger max width */
+        height: 400px;  /* increased height */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -47,8 +46,8 @@ st.markdown(
         object-fit: contain;
     }}
     .middle-content {{
-        flex: 4;  /* middle content wider than before */
-        max-width: 600px;
+        flex: 4.5;  /* slightly wider middle content */
+        max-width: 700px;
     }}
     .heading {{
         display: flex;
@@ -56,6 +55,10 @@ st.markdown(
         gap: 12px;
         margin-bottom: 0;
         font-size: 2.5rem;
+        font-weight: 600;
+    }}
+    .heading span {{
+        display: inline-block;
     }}
     .spin {{
         height: 1.5em;
@@ -72,7 +75,7 @@ st.markdown(
             <h2>Welcome to this interactive dashboard analyzing cricket players in the 2023 and 2024 Indian Premier League (IPL) Seasons!</h2>
             <h2>Click on "Batter Hub" and "Bowler Hub" on the sidebar to explore further</h2>
             <div class="heading">
-                Get ready for a chase!
+                <span>Get ready for a chase!</span>
                 <img src="data:image/png;base64,{encoded_cricketball}" class="spin" />
             </div>
         </div>
@@ -84,11 +87,11 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Centered trophy image below the top section (bigger size)
+# Bigger center trophy image with explicit width and height
 st.markdown(
     f"""
     <div style="text-align: center; margin-top: 40px;">
-        <img src="data:image/jpeg;base64,{encoded_center}" style="width: 500px; height: auto;" />
+        <img src="data:image/jpeg;base64,{encoded_center}" style="width: 650px; height: 450px; object-fit: contain;" />
     </div>
     """,
     unsafe_allow_html=True,
