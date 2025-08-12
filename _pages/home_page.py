@@ -86,7 +86,7 @@ st.markdown(
     /* Align trophy image left edge with text */
     .center-image-container {{
         max-width: 1800px;
-        margin: -15px auto 0;
+        margin: -100px auto 0;
         padding: 0 20px;
         position: relative;
     }}
