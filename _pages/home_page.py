@@ -24,19 +24,19 @@ st.markdown(
     }}
     .container {{
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
         gap: 70px;
         max-width: 1800px;
         margin: auto;
-        padding-top: 20px;
+        padding: 50px 20px 20px;
         position: relative;
+        min-height: 650px;
     }}
     .left-image {{
         position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        left: 20px;
+        top: 50px;
         width: 450px;   /* increased width */
         height: 600px;  /* increased height (more than width) */
     }}
@@ -44,12 +44,12 @@ st.markdown(
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 8px;
     }}
     .right-image {{
         position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        right: 20px;
+        top: 50px;
         width: 450px;   /* increased width */
         height: 600px;  /* increased height (more than width) */
     }}
@@ -57,6 +57,7 @@ st.markdown(
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 8px;
     }}
     .middle-content {{
         flex: 1;
@@ -65,6 +66,7 @@ st.markdown(
         text-align: left;
         position: relative;
         z-index: 10;
+        padding: 0 20px;
     }}
     .heading {{
         display: flex;
@@ -85,24 +87,31 @@ st.markdown(
     .center-image-container {{
         max-width: 1800px;
         margin: 40px auto 0;
+        padding: 0 20px;
         position: relative;
     }}
     .center-image {{
         height: 650px;  /* increased height more */
         width: 500px;   /* width less than height */
         object-fit: contain;
-        margin-left: calc(50% - 900px + 70px); /* align with text left edge */
+        margin-left: calc(50% - 350px); /* align with text left edge */
         display: block;
     }}
     
     /* Responsive adjustments */
-    @media (max-width: 1200px) {{
+    @media (max-width: 1400px) {{
         .left-image, .right-image {{
             display: none;
+        }}
+        .container {{
+            padding: 20px;
         }}
         .center-image {{
             margin-left: 0;
             margin: 0 auto;
+        }}
+        .center-image-container {{
+            text-align: center;
         }}
     }}
     </style>
