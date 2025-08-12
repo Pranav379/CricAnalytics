@@ -22,8 +22,8 @@ col_left, col_mid, col_right = st.columns([1, 3, 1])
 with col_left:
     st.markdown(
         f"""
-        <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-            <img src="data:image/jpeg;base64,{encoded_left}" style="max-width: 150px;">
+        <div style="display: flex; justify-content: center; align-items: center; height: 1000%;">
+            <img src="data:image/jpeg;base64,{encoded_left}" style="max-width: 100px;">
         </div>
         """,
         unsafe_allow_html=True
