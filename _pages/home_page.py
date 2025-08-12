@@ -35,9 +35,9 @@ st.markdown(
     }}
     .left-image {{
         position: absolute;
-        left: -80px;
+        left: -120px;
         top: 50px;
-        width: 580px;   /* increased width even more */
+        width: 600px;   /* increased width and matching right image */
         height: 750px;  /* container height */
     }}
     .left-image img {{
@@ -50,7 +50,7 @@ st.markdown(
         position: absolute;
         right: 20px;
         top: 50px;
-        width: 580px;   /* increased width even more */
+        width: 600px;   /* matching left image width */
         height: 750px;  /* container height */
     }}
     .right-image img {{
@@ -72,7 +72,7 @@ st.markdown(
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-bottom: 0;
+        margin-bottom: 10px;
         font-size: 2.5rem;
         font-weight: 600;
     }}
@@ -86,7 +86,7 @@ st.markdown(
     /* Align trophy image left edge with text */
     .center-image-container {{
         max-width: 1800px;
-        margin: -60px auto 0;
+        margin: 5px auto 0;
         padding: 0 20px;
         position: relative;
     }}
