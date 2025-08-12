@@ -24,7 +24,7 @@ st.markdown(
       to {{ transform: rotate(360deg); }}
     }}
     .spin {{
-      animation: spin 4s linear infinite;
+      animation: spin 2s linear infinite;
       height: 1.5em;
     }}
     </style>
