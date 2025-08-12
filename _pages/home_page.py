@@ -27,15 +27,15 @@ st.markdown(
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 60px;
-        max-width: 1500px;  /* wider container */
+        gap: 70px;
+        max-width: 1600px;
         margin: auto;
         padding-top: 20px;
     }}
     .side-image {{
-        flex: 2;  /* increased flex for wider images */
-        max-width: 350px;  /* bigger max width */
-        height: 400px;  /* increased height */
+        flex: 3;  /* much bigger flex */
+        max-width: 600px;  /* drastically increased max width */
+        height: 700px;  /* drastically increased height */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -46,8 +46,9 @@ st.markdown(
         object-fit: contain;
     }}
     .middle-content {{
-        flex: 4.5;  /* slightly wider middle content */
+        flex: 4.5;
         max-width: 700px;
+        position: relative;
     }}
     .heading {{
         display: flex;
@@ -63,6 +64,19 @@ st.markdown(
     .spin {{
         height: 1.5em;
         animation: spin 0.75s linear infinite;
+    }}
+
+    /* Align center image left edge with 'G' in "Get" */
+    .center-image-container {{
+        max-width: 700px;
+        margin-top: 40px;
+        position: relative;
+    }}
+    .center-image {{
+        height: 600px;  /* increase height more */
+        width: 520px;   /* width less than height */
+        object-fit: contain;
+        margin-left: 54px; /* tweak this margin to align left edge with G */
     }}
     </style>
 
@@ -83,15 +97,9 @@ st.markdown(
             <img src="data:image/jpeg;base64,{encoded_right}" />
         </div>
     </div>
-    """,
-    unsafe_allow_html=True,
-)
 
-# Bigger center trophy image with explicit width and height
-st.markdown(
-    f"""
-    <div style="text-align: center; margin-top: 40px;">
-        <img src="data:image/jpeg;base64,{encoded_center}" style="width: 650px; height: 450px; object-fit: contain;" />
+    <div class="center-image-container">
+        <img src="data:image/jpeg;base64,{encoded_center}" class="center-image" />
     </div>
     """,
     unsafe_allow_html=True,
