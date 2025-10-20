@@ -41,8 +41,8 @@ st.markdown(
         height: 450px;  /* container height */
     }}
     .left-image img {{
-        width: 100%;    /* slightly wider than container */
-        height: 100%;   /* taller than container to stretch */
+        width: 120%;    /* slightly wider than container */
+        height: 130%;   /* taller than container to stretch */
         object-fit: fill;  /* stretch to fill dimensions */
         border-radius: 8px;
     }}
@@ -54,8 +54,8 @@ st.markdown(
         height: 450px;  /* container height */
     }}
     .right-image img {{
-        width: 100%;    /* slightly wider than container */
-        height: 100%;   /* taller than container to stretch */
+        width: 120%;    /* slightly wider than container */
+        height: 130%;   /* taller than container to stretch */
         object-fit: fill;  /* stretch to fill dimensions */
         border-radius: 8px;
     }}
