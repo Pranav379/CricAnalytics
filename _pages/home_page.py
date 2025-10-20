@@ -35,14 +35,14 @@ st.markdown(
     }}
     .left-image {{
         position: absolute;
-        left: -150px;
+        left: -100px;
         top: 50px;
-        width: 600px;   /* increased width and matching right image */
-        height: 750px;  /* container height */
+        width: 500px;   /* increased width and matching right image */
+        height: 600px;  /* container height */
     }}
     .left-image img {{
-        width: 110%;    /* slightly wider than container */
-        height: 140%;   /* taller than container to stretch */
+        width: 100%;    /* slightly wider than container */
+        height: 100%;   /* taller than container to stretch */
         object-fit: fill;  /* stretch to fill dimensions */
         border-radius: 8px;
     }}
@@ -50,12 +50,12 @@ st.markdown(
         position: absolute;
         right: 20px;
         top: 50px;
-        width: 600px;   /* matching left image width */
-        height: 750px;  /* container height */
+        width: 500px;   /* matching left image width */
+        height: 600px;  /* container height */
     }}
     .right-image img {{
-        width: 110%;    /* slightly wider than container */
-        height: 140%;   /* taller than container to stretch */
+        width: 100%;    /* slightly wider than container */
+        height: 100%;   /* taller than container to stretch */
         object-fit: fill;  /* stretch to fill dimensions */
         border-radius: 8px;
     }}
