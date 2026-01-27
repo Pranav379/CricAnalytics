@@ -55,7 +55,7 @@ components.html(
     }}
 
     .spin {{
-        height: 34px;
+        height: 40px;
         animation: spin 0.75s linear infinite;
         vertical-align: middle;
         margin-left: 6px;
