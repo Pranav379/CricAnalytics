@@ -10,7 +10,6 @@ def load_base64(image_path):
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-# Load ONLY the cricket ball
 encoded_cricketball = load_base64("images/cricketball.png")
 
 st.markdown(
@@ -21,53 +20,55 @@ st.markdown(
         to {{ transform: rotate(360deg); }}
     }}
 
-    .container {{
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        max-width: 1200px;
-        margin: auto;
-        padding: 50px 20px;
-        min-height: 80vh;
+    .content {{
+        max-width: 900px;
+        margin: 60px auto;
+        font-family: inherit;
     }}
 
-    .middle-content {{
-        max-width: 800px;
-        text-align: left;
+    .title {{
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }}
+
+    .text {{
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        line-height: 1.6;
     }}
 
     .heading {{
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-top: 20px;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 600;
+        margin-top: 30px;
     }}
 
     .spin {{
-        height: 1.5em;
+        height: 36px;
         animation: spin 0.75s linear infinite;
     }}
     </style>
 
-    <div class="container">
-        <div class="middle-content">
-            <h1>IPL Hawkeye Dashboard</h1>
+    <div class="content">
+        <div class="title">IPL Hawkeye Dashboard</div>
 
-            <h2>
-                Welcome to this interactive dashboard analyzing cricket players
-                in the 2023 and 2024 Indian Premier League (IPL) Seasons!
-            </h2>
+        <div class="text">
+            Welcome to this interactive dashboard analyzing cricket players
+            in the 2023 and 2024 Indian Premier League (IPL) Seasons!
+        </div>
 
-            <h2>
-                Click on "Batter Hub" and "Bowler Hub" on the sidebar to explore further
-            </h2>
+        <div class="text">
+            Click on <strong>"Batter Hub"</strong> and <strong>"Bowler Hub"</strong>
+            on the sidebar to explore further
+        </div>
 
-            <div class="heading">
-                <span>Get ready for a chase!</span>
-                <img src="data:image/png;base64,{encoded_cricketball}" class="spin" />
-            </div>
+        <div class="heading">
+            <span>Get ready for a chase!</span>
+            <img src="data:image/png;base64,{encoded_cricketball}" class="spin" />
         </div>
     </div>
     """,
