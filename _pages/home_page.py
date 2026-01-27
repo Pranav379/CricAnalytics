@@ -29,7 +29,7 @@ components.html(
     }}
 
     .wrapper {{
-        height: 92vh;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -44,27 +44,27 @@ components.html(
     .title {{
         font-size: 2.6rem;
         font-weight: 700;
-        margin-bottom: 30px;
+        margin-bottom: 22px;
     }}
 
     .text {{
-        font-size: 1.3rem;
-        margin-bottom: 25px;
-        line-height: 1.6;
+        font-size: 1.05rem;
         font-weight: 400;
+        line-height: 1.6;
+        margin-bottom: 16px;
     }}
 
     .heading {{
         display: flex;
         align-items: center;
-        gap: 12px;
-        font-size: 1.9rem;
-        font-weight: 400; /* UNBOLD */
-        margin-top: 30px;
+        gap: 10px;
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin-top: 24px;
     }}
 
     .spin {{
-        height: 34px;
+        height: 30px;
         animation: spin 0.75s linear infinite;
     }}
     </style>
@@ -90,5 +90,5 @@ components.html(
         </div>
     </div>
     """,
-    height=700,
+    height=680,
 )
