@@ -44,28 +44,22 @@ components.html(
     .title {{
         font-size: 2.6rem;
         font-weight: 700;
-        margin-bottom: 22px;
+        margin-bottom: 26px;
     }}
 
+    /* BIGGER STREAMLIT-THEMED BODY TEXT */
     .text {{
-        font-size: 1.05rem;
+        font-size: 1.25rem;   /* INCREASED SIZE */
         font-weight: 400;
-        line-height: 1.6;
-        margin-bottom: 16px;
-    }}
-
-    .heading {{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 1.6rem;
-        font-weight: 400;
-        margin-top: 24px;
+        line-height: 1.65;
+        margin-bottom: 18px;
     }}
 
     .spin {{
-        height: 30px;
+        height: 28px;
         animation: spin 0.75s linear infinite;
+        vertical-align: middle;
+        margin-left: 6px;
     }}
     </style>
 
@@ -79,12 +73,12 @@ components.html(
             </div>
 
             <div class="text">
-                Click on <strong>Batter Hub</strong> and <strong>Bowler Hub</strong>
+                Click on <em>Batter Hub</em> and <em>Bowler Hub</em>
                 on the sidebar to explore further
             </div>
 
-            <div class="heading">
-                <span>Get ready for a chase!</span>
+            <div class="text">
+                Get ready for a chase!
                 <img src="data:image/png;base64,{encoded_cricketball}" class="spin">
             </div>
         </div>
