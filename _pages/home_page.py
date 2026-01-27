@@ -10,130 +10,32 @@ def load_base64(image_path):
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-encoded_cricketball = load_base64("images/cricketball.png")  
-encoded_center = load_base64("images/IPLtrophy.jpg")  
-encoded_left = load_base64("images/teampic.jpg")  
-encoded_right = load_base64("images/srhwin.jpg")  
+# Load ONLY the cricket ball
+encoded_cricketball = load_base64("images/cricketball.png")
 
 st.markdown(
     f"""
     <style>
     @keyframes spin {{
-      from {{ transform: rotate(0deg); }}
-      to {{ transform: rotate(360deg); }}
+        from {{ transform: rotate(0deg); }}
+        to {{ transform: rotate(360deg); }}
     }}
-    .container {{
+
+    .ball-container {{
         display: flex;
         justify-content: center;
-        align-items: flex-start;
-        gap: 70px;
-        max-width: 1800px;
-        margin: auto;
-        padding: 50px 5px 20px;
-        position: relative;
-        min-height: 800px;
-    }}
-    .left-image {{
-        position: absolute;
-        left: -50px;
-        top: 50px;
-        width: 350px;   /* increased width and matching right image */
-        height: 450px;  /* container height */
-    }}
-    .left-image img {{
-        width: 200%;    /* slightly wider than container */
-        height: 130%;   /* taller than container to stretch */
-        object-fit: fill;  /* stretch to fill dimensions */
-        border-radius: 8px;
-    }}
-    .right-image {{
-        position: absolute;
-        right: -50px;
-        top: 50px;
-        width: 350px;   /* matching left image width */
-        height: 450px;  /* container height */
-    }}
-    .right-image img {{
-        width: 200%;    /* slightly wider than container */
-        height: 130%;   /* taller than container to stretch */
-        object-fit: fill;  /* stretch to fill dimensions */
-        border-radius: 8px;
-    }}
-    .middle-content {{
-        flex: 1;
-        max-width: 700px;
-        margin: 0 auto;
-        text-align: left;
-        position: relative;
-        z-index: 10;
-        padding: 0 20px;
-    }}
-    .heading {{
-        display: flex;
         align-items: center;
-        gap: 12px;
-        margin-bottom: 1px;
-        font-size: 2.5rem;
-        font-weight: 600;
+        height: 80vh;
     }}
-    .heading span {{
-        display: inline-block;
-    }}
+
     .spin {{
-        height: 1.5em;
+        height: 120px;
         animation: spin 0.75s linear infinite;
     }}
-    /* Align trophy image left edge with text */
-    .center-image-container {{
-        max-width: 1800px;
-        margin: -300px auto 0;
-        padding: 0 20px;
-        position: relative;
-    }}
-    .center-image {{
-        height: 520px;  /* increased height */
-        width: 680px;   /* slightly reduced width */
-        object-fit: contain;
-        margin-left: calc(50% - 340px); /* adjusted for new width */
-        display: block;
-    }}
-    
-    /* Responsive adjustments */
-    @media (max-width: 1400px) {{
-        .left-image, .right-image {{
-            display: none;
-        }}
-        .container {{
-            padding: 20px;
-        }}
-        .center-image {{
-            margin-left: 0;
-            margin: 0 auto;
-        }}
-        .center-image-container {{
-            text-align: center;
-        }}
-    }}
     </style>
-    <div class="container">
-        <div class="left-image">
-            <img src="data:image/jpeg;base64,{encoded_left}" />
-        </div>
-        <div class="middle-content">
-            <h1>IPL Hawkeye Dashboard</h1>
-            <h2>Welcome to this interactive dashboard analyzing cricket players in the 2023 and 2024 Indian Premier League (IPL) Seasons!</h2>
-            <h2>Click on "Batter Hub" and "Bowler Hub" on the sidebar to explore further</h2>
-            <div class="heading">
-                <span>Get ready for a chase!</span>
-                <img src="data:image/png;base64,{encoded_cricketball}" class="spin" />
-            </div>
-        </div>
-    </div>
-    <div class="center-image-container">
-        <img src="data:image/jpeg;base64,{encoded_center}" class="center-image" />
-    </div>
-    <div class="right-image">
-        <img src="data:image/jpeg;base64,{encoded_right}" />
+
+    <div class="ball-container">
+        <img src="data:image/png;base64,{encoded_cricketball}" class="spin" />
     </div>
     """,
     unsafe_allow_html=True,
