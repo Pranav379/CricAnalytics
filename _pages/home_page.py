@@ -35,8 +35,8 @@ components.html(
 
     .content {{
         max-width: 900px;
-        text-align: center;
         padding: 20px;
+        text-align: left;   /* LEFT-ALIGNED TEXT */
     }}
 
     .title {{
@@ -53,7 +53,6 @@ components.html(
 
     .heading {{
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 12px;
         font-size: 2rem;
