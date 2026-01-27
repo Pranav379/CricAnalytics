@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="IPL Hawkeye Dashboard",
@@ -12,7 +13,7 @@ def load_base64(image_path):
 
 encoded_cricketball = load_base64("images/cricketball.png")
 
-st.markdown(
+components.html(
     f"""
     <style>
     @keyframes spin {{
@@ -20,10 +21,13 @@ st.markdown(
         to {{ transform: rotate(360deg); }}
     }}
 
+    body {{
+        font-family: sans-serif;
+    }}
+
     .content {{
         max-width: 900px;
         margin: 60px auto;
-        font-family: inherit;
     }}
 
     .title {{
@@ -68,9 +72,9 @@ st.markdown(
 
         <div class="heading">
             <span>Get ready for a chase!</span>
-            <img src="data:image/png;base64,{encoded_cricketball}" class="spin" />
+            <img src="data:image/png;base64,{encoded_cricketball}" class="spin">
         </div>
     </div>
     """,
-    unsafe_allow_html=True,
+    height=600,
 )
