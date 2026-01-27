@@ -22,12 +22,14 @@ components.html(
     }}
 
     body {{
-        font-family: sans-serif;
         margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                     Roboto, Helvetica, Arial, sans-serif;
+        color: rgb(49, 51, 63);
     }}
 
     .wrapper {{
-        height: 100vh;
+        height: 92vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -36,11 +38,11 @@ components.html(
     .content {{
         max-width: 900px;
         padding: 20px;
-        text-align: left;   /* LEFT-ALIGNED TEXT */
+        text-align: left;
     }}
 
     .title {{
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         font-weight: 700;
         margin-bottom: 30px;
     }}
@@ -49,19 +51,20 @@ components.html(
         font-size: 1.3rem;
         margin-bottom: 25px;
         line-height: 1.6;
+        font-weight: 400;
     }}
 
     .heading {{
         display: flex;
         align-items: center;
         gap: 12px;
-        font-size: 2rem;
-        font-weight: 600;
+        font-size: 1.9rem;
+        font-weight: 400; /* UNBOLD */
         margin-top: 30px;
     }}
 
     .spin {{
-        height: 36px;
+        height: 34px;
         animation: spin 0.75s linear infinite;
     }}
     </style>
