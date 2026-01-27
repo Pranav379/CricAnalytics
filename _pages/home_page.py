@@ -47,7 +47,6 @@ components.html(
         margin-bottom: 26px;
     }}
 
-    /* BIGGER STREAMLIT-THEMED BODY TEXT */
     .text {{
         font-size: 1.5rem;
         font-weight: 400;
@@ -56,7 +55,7 @@ components.html(
     }}
 
     .spin {{
-        height: 28px;
+        height: 34px;
         animation: spin 0.75s linear infinite;
         vertical-align: middle;
         margin-left: 6px;
