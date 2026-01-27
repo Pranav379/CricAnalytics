@@ -49,7 +49,7 @@ components.html(
 
     /* BIGGER STREAMLIT-THEMED BODY TEXT */
     .text {{
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 400;
         line-height: 1.65;
         margin-bottom: 18px;
